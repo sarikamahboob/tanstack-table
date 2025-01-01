@@ -9,3 +9,8 @@ export const fuzzyFilter: FilterFn<User> = (row, columnId, value, addMeta) => {
   addMeta({itemRank})
   return itemRank.passed
 }
+
+export const convertCamelToTitleCase = (text: string) => {
+  const result = text.replace(/([A-Z])/g, " $1");
+  return result.charAt(0).toUpperCase() + result.slice(1);
+};

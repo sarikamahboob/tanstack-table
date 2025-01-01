@@ -13,7 +13,6 @@ import { IoIosArrowRoundDown, IoIosArrowRoundUp } from "react-icons/io";
 const TableHeader = ({header}:any) => {
   const isSorted = header.column.getIsSorted()
   const isPinned = header.column.getIsPinned()
-  console.log({isSorted})
   return (
     <th 
       key={header.id} 

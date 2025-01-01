@@ -61,11 +61,12 @@ const useTableData = () => {
         ) : null,
     }),
     columnHelper.accessor("", {
-      id: "SI.No.",
+      id: "si-no",
       cell: (info) => <span>{info.row.index + 1}</span>,
       header: () => <span>SI. No.</span>,
     }),
     columnHelper.accessor("userId", {
+      id: "user-id",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>User ID</span>,
     }),
@@ -81,22 +82,25 @@ const useTableData = () => {
       header: () => <span>Profile</span>,
     }),
     columnHelper.accessor("firstName", {
+      id: "first-name",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>First Name</span>,
     }),
     columnHelper.accessor("lastName", {
+      id: "last-name",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>Last Name</span>,
     }),
     columnHelper.accessor(
       (fullName) => `${fullName.firstName} ${fullName.lastName}`,
       {
-        id: "fullName",
+        id: "full-name",
         header: () => <span>Full Name</span>,
         size: 300,
       }
     ),
     columnHelper.accessor("age", {
+      id: "age",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>Age</span>,
       footer: (props) => {
@@ -107,10 +111,12 @@ const useTableData = () => {
       },
     }),
     columnHelper.accessor("visits", {
+      id: "visits",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>Visits</span>,
     }),
     columnHelper.accessor("progress", {
+      id: "progress",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>Progress</span>,
       footer: (props) => {
