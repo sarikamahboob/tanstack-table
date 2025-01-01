@@ -3,19 +3,16 @@
 import { Input } from "@/components/ui/input"
 import { fuzzyFilter } from "@/lib/Table.utils"
 import useTableData from "@/lib/useTableData"
-import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table"
+import { flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table"
 import { useState } from "react"
 import ColumnVisibilitySelector from "./ColumnVisibilitySelector"
-import DebouncedInput from "./DebouncedInput"
 import DownloadBtn from "./DownloadBtn"
 import RowDetailView from "./RowDetailView"
 import TableHeader from "./TableHeader"
 const TanstackTable = () => {
   const { columns, data, columnsIds, initialColumnVisibility } = useTableData();
   const [globalFilter, setGlobalFilter] = useState("")
-  const columnHelper = createColumnHelper()
   
-  console.log({columnsIds})
   const table = useReactTable({
     data,
     columns,
@@ -39,13 +36,13 @@ const TanstackTable = () => {
   return (
     <div>
       <div className="flex justify-between mb-2">
-        <div className="w-full flex">
+        <div className="w-full flex gap-4">
           <ColumnVisibilitySelector table={table} columnsIds={columnsIds} />
-          <DebouncedInput 
+          {/* <DebouncedInput 
             value={globalFilter ?? ""} 
             onChange={(value)=> setGlobalFilter(String(value))} className="p-2 bg-transparent outline-none border-b-2 w-56 focus:w-60 duration-380 border-indigo-500"
             placeholder="Search all columns..."
-          />
+          /> */}
           <Input type="text" placeholder="Search..." onChange={(e) => table.setGlobalFilter(e.target.value)} className="w-[250px]" />
         </div>
         <DownloadBtn data={data} fileName={"peoples"}/>

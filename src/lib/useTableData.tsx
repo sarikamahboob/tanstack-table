@@ -38,6 +38,7 @@ const useTableData = () => {
           />
         </span>
       ),
+      size: 120
     }),
     columnHelper.display({
       id: "expand",
@@ -59,16 +60,19 @@ const useTableData = () => {
             )}
           </Button>
         ) : null,
+        size: 40
     }),
     columnHelper.accessor("", {
       id: "si-no",
       cell: (info) => <span>{info.row.index + 1}</span>,
       header: () => <span>SI. No.</span>,
+      size: 420
     }),
     columnHelper.accessor("userId", {
       id: "user-id",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>User ID</span>,
+      size: 150
     }),
     columnHelper.accessor("profile", {
       id: "profile",
@@ -80,16 +84,19 @@ const useTableData = () => {
         />
       ),
       header: () => <span>Profile</span>,
+      size: 160
     }),
     columnHelper.accessor("firstName", {
       id: "first-name",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>First Name</span>,
+      size: 390
     }),
     columnHelper.accessor("lastName", {
       id: "last-name",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>Last Name</span>,
+      size: 350
     }),
     columnHelper.accessor(
       (fullName) => `${fullName.firstName} ${fullName.lastName}`,
@@ -109,11 +116,13 @@ const useTableData = () => {
           .rows.reduce((acc, val) => acc + Number(val.getValue("age")), 0);
         return <span>Total: {totalAge}</span>;
       },
+      size: 100
     }),
     columnHelper.accessor("visits", {
       id: "visits",
       cell: (info) => <span>{info.getValue()}</span>,
       header: () => <span>Visits</span>,
+      size: 150
     }),
     columnHelper.accessor("progress", {
       id: "progress",
@@ -127,6 +136,7 @@ const useTableData = () => {
         );
         return <span>Total: {totalProgress}</span>;
       },
+      size: 160
     }),
     columnHelper.accessor("birthDate", {
       id: "birthDate",
@@ -134,6 +144,7 @@ const useTableData = () => {
         <span>{moment(info.getValue()).format("DD/MM/YYYY")}</span>
       ),
       header: () => <span>BirthDate</span>,
+      size: 170
     }),
     columnHelper.display({
       id: "delete",
@@ -154,6 +165,7 @@ const useTableData = () => {
           <MdDeleteForever color="white" size={25} />
         </Button>
       ),
+      size: 80
     }),
   ], [columnHelper]);
 

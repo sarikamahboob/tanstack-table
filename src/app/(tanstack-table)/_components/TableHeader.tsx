@@ -13,6 +13,7 @@ import { IoIosArrowRoundDown, IoIosArrowRoundUp } from "react-icons/io";
 const TableHeader = ({header}:any) => {
   const isSorted = header.column.getIsSorted()
   const isPinned = header.column.getIsPinned()
+  console.log(header.getSize())
   return (
     <th 
       key={header.id} 
@@ -20,7 +21,7 @@ const TableHeader = ({header}:any) => {
       style={{ width: header.getSize() , position: 'relative', ...(isPinned && {background:"rgb(97,6,79)"})}}
       colSpan={header.colSpan}
     >
-      <Menubar className="absolute right-[7px] top-[14px] bg-transparent border-none shadow-none">
+      <Menubar className="absolute right-[7px] top-[3px] bg-transparent border-none shadow-none">
         <MenubarMenu>
           <MenubarTrigger className="px-0"><HiOutlineDotsVertical /></MenubarTrigger>
           <MenubarContent>
